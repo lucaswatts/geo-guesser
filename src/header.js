@@ -1,13 +1,18 @@
 import React from 'react';
+import Button from './Button';
 
-function header() {
+function Header() {
+    const onClick = () => {
+        console.log('hello');
+    }
     return (
         <div>
-        <h1>Flash</h1>
-        <p>Flash memory cards</p>
+            {/* <h1>Capital</h1> */}
+            {/* <Button color='green' text='Start' onClick={onClick} /> */}
+            <p id="display-timer">10:00</p>
         </div>
     )
 }
 
-export default header;
+export default Header;
 
