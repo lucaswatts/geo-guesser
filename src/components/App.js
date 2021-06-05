@@ -5,6 +5,7 @@ import Guessing from "./Guessing";
 import Counter from "./Counter";
 import Button from "./Button";
 import Country from "./Country";
+import Clock from "./Clock";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Country />
       <Guessing />
       <Counter />
+      <Clock />
     </>
   );
 }

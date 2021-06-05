@@ -9,10 +9,10 @@ function Country() {
 
   function pickCountry() {
     const infoHold = document.getElementById("infoHolder");
-    var Num = Math.floor(Math.random() * Countries.length - 1 + 1);
+    var Num = Math.floor(Math.random() * Countries.data.length - 1 + 1);
     const countryOutput = document.getElementById("country");
-    countryOutput.innerHTML = Countries[Num].City;
-    infoHold.innerHTML = Countries[Num].Country;
+    countryOutput.innerHTML = Countries.data[Num].City;
+    infoHold.innerHTML = Countries.data[Num].Country;
     document.getElementById("answer").value = "";
   }
 
