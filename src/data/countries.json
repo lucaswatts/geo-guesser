@@ -1,0 +1,28 @@
+{
+  "data": [
+    {
+      "City": "Ottawa",
+      "Country": "Canada"
+    },
+    {
+      "City": "Belgrade",
+      "Country": "Serbia"
+    },
+    {
+      "City": "Stockholm",
+      "Country": "Sweden"
+    },
+    {
+      "City": "Amsterdam",
+      "Country": "The Netherlands"
+    },
+    {
+      "City": "Brussels",
+      "Country": "Belgium"
+    },
+    {
+      "City": "Zagreb",
+      "Country": "Croatia"
+    }
+  ]
+}
