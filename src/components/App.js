@@ -5,17 +5,16 @@ import Guessing from "./Guessing";
 import Counter from "./Counter";
 import Button from "./Button";
 import Country from "./Country";
-import Clock from "./Clock";
+import UIElements from "./UIElements";
 
 
 function App() {
   return (
     <>
-      <Header />
+    <UIElements />
       <Country />
       <Guessing />
       <Counter />
-      <Clock />
     </>
   );
 }

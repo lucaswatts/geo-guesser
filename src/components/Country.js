@@ -43,25 +43,19 @@ function Country() {
 
   return (
     <div id="content">
-      <p id="country"></p>
-      <button id="button1" onClick={pickCountry} type="button">
+      <p id="country">Press start to begin...</p>
+      <button id="startBtn" className="btn" onClick={pickCountry} type="button">
         Start
       </button>
-      <input
-        id="answer"
-        placeholder="Guess here..."
-        type="text"
-        onKeyPress={check}
-      ></input>
-      <button onClick={check} id="checkAnswer">
+      
+    <input className="game-input" id="name" type="text" placeholder="City..." />
+  
+
+      <button onClick={check} id="checkAnswer" className="btn">
         Check Answer
       </button>
-      <p id="output">Guess the Country</p>
-      <p id="correctAnswers">Good Luck!</p>
-      <p id="infoHolder"></p>
-      <button id="reset" onClick={resetGame}>
-        Reset
-      </button>
+      <p id="message">Press start, and then guess which Country<br></br> the displayed City Belongs to.<br></br> Good luck!</p>
+      
     </div>
   );
 }
