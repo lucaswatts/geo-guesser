@@ -1,20 +1,15 @@
 * {
- 
-  background-color: #E7F3EF;
+  background-color: #e7f3ef;
   margin-left: 10%;
 }
-
-
-
-
 
 #button1 {
   width: 100px;
   height: 50px;
   background-color: #093426;
-  color: #E7F3EF;
+  color: #e7f3ef;
   transition: 0.1s;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-weight: 900;
   font-size: 1.5rem;
   border-radius: 6px;
@@ -24,8 +19,8 @@
 }
 
 #button1:hover {
-  background-color: #23483C;
-  color: #E7F3EF;
+  background-color: #23483c;
+  color: #e7f3ef;
 }
 
 #infoHolder {
@@ -40,9 +35,8 @@
 }
 
 p {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 #content {
- 
 }
