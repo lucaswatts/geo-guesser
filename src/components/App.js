@@ -10,12 +10,12 @@ import UIElements from "./UIElements";
 
 function App() {
   return (
-    <>
+    <div id="parentContainer">
     <UIElements />
       <Country />
       <Guessing />
       <Counter />
-    </>
+    </div>
   );
 }
 

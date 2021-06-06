@@ -6,6 +6,9 @@ function Country() {
     const score = document.getElementById("correctAnswers");
     score.innerHTML = "Good Luck!";
   }
+  function skip() {
+    console.log('skipping')
+  }
 
   function pickCountry() {
     const infoHold = document.getElementById("infoHolder");
@@ -47,14 +50,16 @@ function Country() {
       <button id="startBtn" className="btn" onClick={pickCountry} type="button">
         Start
       </button>
-      
-    <input className="game-input" id="name" type="text" placeholder="City..." />
   
 
       <button onClick={check} id="checkAnswer" className="btn">
         Check Answer
       </button>
-      <p id="message">Press start, and then guess which Country<br></br> the displayed City Belongs to.<br></br> Good luck!</p>
+      <button onClick={skip} id="skipBtn" className="btn">
+        Skip
+      </button>
+      <input className="game-input" id="name" type="text" placeholder="City..." />
+      <p id="message">Press start, and then guess which Country the displayed City Belongs to.<br></br> Good luck!</p>
       
     </div>
   );

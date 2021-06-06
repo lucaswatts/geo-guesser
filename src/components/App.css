@@ -3,6 +3,10 @@
   margin-top: 0px;
   margin-bottom: 0px;
 }
+#parentContainer {
+  height: 100%;
+  width: 100%;
+}
 
 #button1 {
   width: 100px;
@@ -29,10 +33,14 @@
 }
 
 #country {
-  display: block;
   font-size: 25px;
-  display: flex;
-  justify-content: center;
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  font-size: 30px;
+  background-color: #11111100;
+  text-transform: uppercase;
+  display: block;
+  z-index: 300;
 }
 
 p {
@@ -49,17 +57,14 @@ p {
   position: absolute;
 }
 
-#scoreElements {
-  margin-left: 50%;
-  background-color: #11111100;
-  height: 50%;
-  width: 50%;
-  position: absolute;
-}
 
 #content {
   background-color: #11111100;
-  position: absolute;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 25%;
 }
 
 
@@ -78,8 +83,8 @@ p {
 #mainTitle {
   display: inline;
   position: relative;
-  right: 750px;
   top: 100px;
+  right: 690px;
   font-family: 'Oswald', sans-serif;
   font-weight: 600;
   font-size: 75px;
@@ -92,9 +97,17 @@ p {
 	width: 260px;
 	height: 260px;
   position: relative;
-  bottom: 0px;
+  top: 10px;
   right: 150px;
   background-color: #11111144;
+  display: none;
+}
+
+#scoreElements {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #11111100;
 }
 
 #scoreCounter {
@@ -104,27 +117,19 @@ p {
   font-family: 'Quattrocento', serif;
   font-size: 22px;
   position: relative;
-  top: 630px;
-  right: 115px;
 }
 
 #resetBtn {
   position: relative;
-  top: 690px;
-  right: 310px;
 }
 
 
 #startBtn {
   position: relative;
-  top: 500px;
-  left: 60px;
 }
 
 #checkAnswer {
   position: relative;
-  top: 500px;
-  left: 160px;
 }
 
 
@@ -141,6 +146,7 @@ p {
   color: #c0ab9a;
   text-align: center;
   transition: all 0.25s;
+  z-index: 50;
 }
 
 .btn:hover {
@@ -149,7 +155,7 @@ p {
 }
 
 .game-input {
-  display: inline-block;
+  display: block;
   width: 215px;
   padding: 10px 0 10px 15px;
   color: #c0ab9a;
@@ -162,8 +168,7 @@ p {
   border: 1px solid #ff613233;
   font-family: 'Oswald', sans-serif;
   font-weight: 400;
-  position:absolute;
-  top: 400px;
+  z-index: 400;
 }  
 
 .game-input:focus {
@@ -176,16 +181,8 @@ p {
   position: absolute;
   top: 700px;
   padding-left: 5%;
+  background-color: #11111100;
+  padding-right: 75%;
 }
 
-#country {
-  font-family: 'Oswald', sans-serif;
-  font-weight: 700;
-  font-size: 30px;
-  background-color: #11111100;
-  text-transform: uppercase;
-  position: relative;
-  top: 400px;
-  left: 670px;
-}
 
