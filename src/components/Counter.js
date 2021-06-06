@@ -18,9 +18,9 @@ class Counter extends React.Component {
   
   render() {
     return (
-      <div>
-        <h2>Your score is: {this.state.count} out of {totalPlaces} </h2>
-        <button className="btn" onClick={() => this.reset()}>Reset Game</button>
+      <div id="scoreElements">
+        <h2 id="scoreCounter">Your score is: {this.state.count} out of {totalPlaces} </h2>
+        <button id="resetBtn" className="btn" onClick={() => this.reset()}>Reset Game</button>
       </div>
     );
   }
