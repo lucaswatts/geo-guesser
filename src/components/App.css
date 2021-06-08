@@ -126,6 +126,15 @@ p {
   position: relative;
 }
 
+#scoreCount {
+  color: #c0ab9a;
+  display: inline;
+  background-color: #11111100;
+  font-family: 'Quattrocento', serif;
+  font-size: 22px;
+  position: relative;
+}
+
 /* #resetBtn {
   position: relative;
 }
@@ -182,11 +191,11 @@ p {
   border: 1px solid #ff6132;
 }
 
-#message {
+.bottomLeftText {
   font-family: 'Oswald', sans-serif;
   font-weight: 200;
   position: absolute;
-  top: 700px;
+  top: 0px;
   padding-left: 5%;
   background-color: #11111100;
   padding-right: 75%;
