@@ -3,6 +3,11 @@
   margin-top: 0px;
   margin-bottom: 0px;
 }
+
+.inactive.btn {
+  display: none;
+}
+
 #parentContainer {
   height: 100%;
   width: 100%;
@@ -108,6 +113,8 @@ p {
   flex-direction: column;
   justify-content: center;
   background-color: #11111100;
+  max-width: 350px;
+  margin: auto;
 }
 
 #scoreCounter {
@@ -119,7 +126,7 @@ p {
   position: relative;
 }
 
-#resetBtn {
+/* #resetBtn {
   position: relative;
 }
 
@@ -130,7 +137,7 @@ p {
 
 #checkAnswer {
   position: relative;
-}
+} */
 
 
 .btn {

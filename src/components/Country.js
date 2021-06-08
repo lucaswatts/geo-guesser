@@ -1,68 +1,61 @@
 import React from "react";
 import * as Countries from "../data/countries.json";
 
-function Country() {
-  function resetGame() {
-    const score = document.getElementById("correctAnswers");
-    score.innerHTML = "Good Luck!";
-  }
-  function skip() {
-    console.log('skipping')
+var countryList = Countries
+var listLength = Countries.data.length;
+const cityDisplay = document.getElementById('country');
+
+class Country extends React.Component {
+constructor(props) {
+  super(props);
+  this.state = {
+    randNum: 1,
+  };
+}
+
+  startGame() {
+    const cityDisplay = document.getElementById('country');
+    const startBtn = document.getElementById('startBtn');
+    this.setState({ randNum: this.state.randNum = Math.floor(Math.random() * Countries.data.length -1 + 1)})
+    console.log('game starting');
+    cityDisplay.innerHTML = Countries.data[this.state.randNum].City;
+    startBtn.classList.add('inactive');
   }
 
-  function pickCountry() {
-    const infoHold = document.getElementById("infoHolder");
-    var Num = Math.floor(Math.random() * Countries.data.length - 1 + 1);
-    const countryOutput = document.getElementById("country");
-    countryOutput.innerHTML = Countries.data[Num].City;
-    infoHold.innerHTML = Countries.data[Num].Country;
-    document.getElementById("answer").value = "";
-  }
-
-  function updateScore() {
-    console.log("a correct answer was just logged");
-    const score = document.getElementById("correctAnswers");
-    if (score.innerHTML === "Good Luck!") {
-      score.innerHTML = 1;
-    } else {
-      score.innerHtml = score.innerHTML++;
+  check() {
+    const countryInput = document.getElementById('game-input');
+    const city = document.getElementById('country');
+    if (countryInput.value === Countries.data[this.state.randNum].Country){
+      console.log(Countries.data[this.state.randNum].Country)
     }
+    Countries.data.splice(1,1);
   }
 
-  function check() {
-    const Answer = document.getElementById("answer");
-    var countryOutput = document.getElementById("country").innerHTML;
-    var answerInput = document.getElementById("answer").value;
-    var infoHold = document.getElementById("infoHolder").innerHTML;
-
-    if (answerInput === infoHold) {
-      var outputMessage = document.getElementById("output");
-      console.log("working");
-      outputMessage.innerHTML = "correct!";
-      pickCountry();
-      updateScore();
-    }
+  skip() {
+    console.log('skip');
+    console.log(this.state.randNum)
   }
 
+
+  render() {
   return (
     <div id="content">
-      <p id="country">Press start to begin...</p>
-      <button id="startBtn" className="btn" onClick={pickCountry} type="button">
+       <button id="startBtn" className="btn" onClick={() => this.startGame()} type="button">
         Start
       </button>
-  
-
-      <button onClick={check} id="checkAnswer" className="btn">
+      <p id="country">Press start to begin...</p>
+      <input className="game-input" id="name" type="text" placeholder="City..." />
+      <button onClick={() => this.check()} id="checkAnswer" className="btn">
         Check Answer
       </button>
-      <button onClick={skip} id="skipBtn" className="btn">
+      <button onClick={() => this.skip()} id="skipBtn" className="btn">
         Skip
       </button>
-      <input className="game-input" id="name" type="text" placeholder="City..." />
       <p id="message">Press start, and then guess which Country the displayed City Belongs to.<br></br> Good luck!</p>
       
     </div>
   );
+  }
 }
 
 export default Country;
