@@ -11,6 +11,7 @@ constructor(props) {
   this.state = {
     randNum: 1,
     score: 0,
+    progress: 0,
   };
 }
 
@@ -44,12 +45,14 @@ constructor(props) {
   check() {
     const countryInput = document.getElementById('name');
     const city = document.getElementById('country');
+
     if (countryInput.value == Countries.data[this.state.randNum].Country){
       console.log(Countries.data[this.state.randNum].Country);
       Countries.data.splice(this.state.randNum,1);
       this.newCity();
       this.state.score = this.state.score +1;
       this.updateScore();
+      countryInput.value = '';
     }
     console.log(Countries.data[this.state.randNum].Country);
     this.updateRemainingPlaces();
@@ -58,13 +61,30 @@ constructor(props) {
   skip() {
     const cityDisplay = document.getElementById('country');
     this.setState({ randNum: this.state.randNum = Math.floor(Math.random() * Countries.data.length -1 + 1)})
-    console.log('game starting');
-    cityDisplay.innerHTML = Countries.data[this.state.randNum].City;
+    console.log('skipping...');
     Countries.data.splice(this.state.randNum,1);
+    cityDisplay.innerHTML = Countries.data[this.state.randNum].City;
+    
     this.updateRemainingPlaces();
+    this.progressBar();
   }
 
+  reset() {
+    const country = document.getElementById('country');
+    const input = document.getElementById('name');
+    const startBtn = document.getElementById('startBtn');
+    country.innerHTML = 'You reset geo quiz. Press start to begin';
+    input.value = 'City...';
+    startBtn.classList.remove('inactive');
+    this.state.score = 0;
+  }
   
+  progressBar() {
+   const bar = document.getElementById('progressBar');
+   this.state.progress = this.state.progress + 0.5076;
+   bar.style.width = `${this.state.progress}%`;
+    
+  }
 
   render() {
   return (
@@ -72,8 +92,8 @@ constructor(props) {
        <button id="startBtn" className="btn" onClick={() => this.startGame()} type="button">
         Start
       </button>
-      <p id="country">Press start to begin...</p>
-      <input className="game-input" id="name" type="text" placeholder="City..." />
+      <p id="country">Press start to begin</p>
+      <input className="game-input" onKeyUp={() => this.check()} id="name" type="text" placeholder="City..." />
       <button onClick={() => this.check()} id="checkAnswer" className="btn">
         Check Answer
       </button>
@@ -87,11 +107,12 @@ constructor(props) {
       </div>
       {/* <p className="bottomLeftText" id="message">Press start, and then guess which Country the displayed City Belongs to.<br></br> Good luck!</p> */}
       <br></br>
-      <p className="bottomLeftText" id="placesRemaining">197</p>
+      <p className="bottomLeftText" id="placesRemaining">197</p><p className="bottomLeftTextTwo">Countries remaining.</p>
       
-
-      
+      <div id="progressBar"></div>
     </div>
+  
+    
   );
   }
 }

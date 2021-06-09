@@ -5,7 +5,7 @@
 }
 
 .inactive.btn {
-  display: none;
+  visibility: hidden;
 }
 
 #parentContainer {
@@ -65,11 +65,13 @@ p {
 
 #content {
   background-color: #11111100;
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  padding-top: 25%;
 }
 
 
@@ -87,9 +89,7 @@ p {
 
 #mainTitle {
   display: inline;
-  position: relative;
-  top: 100px;
-  right: 690px;
+  position: fixed;
   font-family: 'Oswald', sans-serif;
   font-weight: 600;
   font-size: 75px;
@@ -124,6 +124,8 @@ p {
   font-family: 'Quattrocento', serif;
   font-size: 22px;
   position: relative;
+  margin-bottom: 10px;
+  margin-top: 10px;
 }
 
 #scoreCount {
@@ -135,18 +137,18 @@ p {
   position: relative;
 }
 
-/* #resetBtn {
-  position: relative;
+#resetBtn {
+  margin-bottom: 50px;
 }
 
 
 #startBtn {
-  position: relative;
+  transition: all 0.5s;
 }
 
 #checkAnswer {
-  position: relative;
-} */
+  margin-top: 50px;
+}
 
 
 .btn {
@@ -175,7 +177,7 @@ p {
   width: 215px;
   padding: 10px 0 10px 15px;
   color: #c0ab9a;
-  background: #efefef00;
+  background: #202429;
   border: 0;
   border-radius: 3px;
   outline: 0;
@@ -183,6 +185,7 @@ p {
   transition: all .3s ease-in-out;
   border: 1px solid #ff613233;
   font-family: 'Oswald', sans-serif;
+  font-size: 12pt;
   font-weight: 400;
   z-index: 400;
 }  
@@ -195,10 +198,27 @@ p {
   font-family: 'Oswald', sans-serif;
   font-weight: 200;
   position: absolute;
-  top: 0px;
-  padding-left: 5%;
+  bottom: 25px;
+  left: 12px;
   background-color: #11111100;
-  padding-right: 75%;
+  font-style: bold;
 }
 
+.bottomLeftTextTwo {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 200;
+  position: absolute;
+  bottom: 25px;
+  left: 38px;
+  background-color: #11111100;
+}
 
+#progressBar {
+  background-color: #c0ab9a55;
+  position: absolute;
+  bottom: 0px;
+  width: 0%;
+  height: 25px;
+  z-index: 1000;
+  left: 0px;
+}
