@@ -3,8 +3,9 @@ import React from 'react';
 class UIElements extends React.Component {
     render() {
         return (
-        <div id="largeBlockRight">
+            <>
             <h2 id="mainTitle">Geo Quiz.</h2>
+            <div id="largeBlockRight">
             <h1 id="bgTitle">GEO<br></br>QUIZ</h1>
             <div class="circle small">
             </div>  
@@ -15,6 +16,7 @@ class UIElements extends React.Component {
             
             </div>
         </div>
+        </>
         )
     }
 }

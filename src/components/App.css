@@ -5,7 +5,7 @@
 }
 
 .inactive.btn {
-  display: none;
+  visibility: hidden;
 }
 
 #parentContainer {
@@ -65,35 +65,38 @@ p {
 
 #content {
   background-color: #11111100;
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  padding-top: 25%;
 }
 
 
 #bgTitle {
   display: block;
   font-size: 200px;
-  color: #252d34;
-  background-color: #293237;
-  position: relative;
-  bottom: 140px;
+  color: #252d3499;
+  background-color: #29323700;
+  position: absolute;
+  top: -30px;
   font-family: 'Oswald', sans-serif;
   font-weight: 700;
   line-height: 1;
 }
 
 #mainTitle {
-  display: inline;
-  position: relative;
-  top: 100px;
-  right: 690px;
+  display: block;
+  position: absolute;
+  top: 0px;
+  left: 10px;
   font-family: 'Oswald', sans-serif;
   font-weight: 600;
-  font-size: 75px;
+  font-size: 55px;
   color: #c0ab9a;
+  background-color: #11111100;
 }
 
 .circle.small {
@@ -124,20 +127,32 @@ p {
   font-family: 'Quattrocento', serif;
   font-size: 22px;
   position: relative;
+  margin-bottom: 10px;
+  margin-top: 10px;
 }
 
-/* #resetBtn {
-  position: relative;
+#scoreCount {
+  color: #c0ab9a;
+  display: inline;
+  background-color: #11111100;
+  font-family: 'Quattrocento', serif;
+  font-size: 22px;
+  margin: auto;
+ 
+}
+
+#resetBtn {
+  margin-bottom: 50px;
 }
 
 
 #startBtn {
-  position: relative;
+  transition: all 0.5s;
 }
 
 #checkAnswer {
-  position: relative;
-} */
+  margin-top: 50px;
+}
 
 
 .btn {
@@ -166,7 +181,7 @@ p {
   width: 215px;
   padding: 10px 0 10px 15px;
   color: #c0ab9a;
-  background: #efefef00;
+  background: #202429;
   border: 0;
   border-radius: 3px;
   outline: 0;
@@ -174,6 +189,7 @@ p {
   transition: all .3s ease-in-out;
   border: 1px solid #ff613233;
   font-family: 'Oswald', sans-serif;
+  font-size: 12pt;
   font-weight: 400;
   z-index: 400;
 }  
@@ -182,14 +198,38 @@ p {
   border: 1px solid #ff6132;
 }
 
-#message {
+.bottomLeftText {
   font-family: 'Oswald', sans-serif;
   font-weight: 200;
   position: absolute;
-  top: 700px;
-  padding-left: 5%;
+  bottom: 25px;
+  left: 12px;
   background-color: #11111100;
-  padding-right: 75%;
+  font-style: bold;
 }
 
+.bottomLeftTextTwo {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 200;
+  position: absolute;
+  bottom: 25px;
+  left: 38px;
+  background-color: #11111100;
+}
 
+#progressBar {
+  background-color: #c0ab9a55;
+  position: absolute;
+  bottom: 0px;
+  width: 0%;
+  height: 25px;
+  z-index: 1000;
+  left: 0px;
+}
+
+#skipInfo {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 200;
+  background-color: #11111100;
+  font-style: bold;
+}
