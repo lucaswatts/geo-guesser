@@ -78,22 +78,25 @@ p {
 #bgTitle {
   display: block;
   font-size: 200px;
-  color: #252d34;
-  background-color: #293237;
-  position: relative;
-  bottom: 140px;
+  color: #252d3499;
+  background-color: #29323700;
+  position: absolute;
+  top: -30px;
   font-family: 'Oswald', sans-serif;
   font-weight: 700;
   line-height: 1;
 }
 
 #mainTitle {
-  display: inline;
-  position: fixed;
+  display: block;
+  position: absolute;
+  top: 0px;
+  left: 10px;
   font-family: 'Oswald', sans-serif;
   font-weight: 600;
-  font-size: 75px;
+  font-size: 55px;
   color: #c0ab9a;
+  background-color: #11111100;
 }
 
 .circle.small {
@@ -134,7 +137,8 @@ p {
   background-color: #11111100;
   font-family: 'Quattrocento', serif;
   font-size: 22px;
-  position: relative;
+  margin: auto;
+ 
 }
 
 #resetBtn {
@@ -221,4 +225,11 @@ p {
   height: 25px;
   z-index: 1000;
   left: 0px;
+}
+
+#skipInfo {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 200;
+  background-color: #11111100;
+  font-style: bold;
 }

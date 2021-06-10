@@ -60,11 +60,12 @@ constructor(props) {
 
   skip() {
     const cityDisplay = document.getElementById('country');
+    const displaySkipped = document.getElementById('skipInfo');
     this.setState({ randNum: this.state.randNum = Math.floor(Math.random() * Countries.data.length -1 + 1)})
     console.log('skipping...');
     Countries.data.splice(this.state.randNum,1);
     cityDisplay.innerHTML = Countries.data[this.state.randNum].City;
-    
+    displaySkipped.innerHTML = Countries.data[this.state.randNum -1].Country;
     this.updateRemainingPlaces();
     this.progressBar();
   }
@@ -83,7 +84,6 @@ constructor(props) {
    const bar = document.getElementById('progressBar');
    this.state.progress = this.state.progress + 0.5076;
    bar.style.width = `${this.state.progress}%`;
-    
   }
 
   render() {
@@ -94,6 +94,7 @@ constructor(props) {
       </button>
       <p id="country">Press start to begin</p>
       <input className="game-input" onKeyUp={() => this.check()} id="name" type="text" placeholder="City..." />
+      <p id="skipInfo">-</p>
       <button onClick={() => this.check()} id="checkAnswer" className="btn">
         Check Answer
       </button>
@@ -102,7 +103,7 @@ constructor(props) {
       </button>
 
       <div id="scoreElements">
-        <h2 id="scoreCounter">Your score is: <h2 id="scoreCount">0</h2> out of 197 </h2>
+       <h2 id="scoreCount">0</h2> 
         <button id="resetBtn" className="btn" onClick={() => this.reset()}>Reset Game</button>
       </div>
       {/* <p className="bottomLeftText" id="message">Press start, and then guess which Country the displayed City Belongs to.<br></br> Good luck!</p> */}
