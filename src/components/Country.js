@@ -9,7 +9,7 @@ class Country extends React.Component {
 constructor(props) {
   super(props);
   this.state = {
-    randNum: 1,
+    randNum: 0,
     score: 0,
     progress: 0,
   };
@@ -18,7 +18,7 @@ constructor(props) {
   startGame() {
     const cityDisplay = document.getElementById('country');
     const startBtn = document.getElementById('startBtn');
-    this.setState({ randNum: this.state.randNum = Math.floor(Math.random() * Countries.data.length -1 + 1)})
+    this.setState({ randNum: this.state.randNum = Math.floor(Math.random() * Countries.data.length)+1})
     console.log('game starting');
     cityDisplay.innerHTML = Countries.data[this.state.randNum].City;
     startBtn.classList.add('inactive');
@@ -27,14 +27,14 @@ constructor(props) {
 
   newCity() {
     const cityDisplay = document.getElementById('country');
-    this.setState({ randNum: this.state.randNum = Math.floor(Math.random() * Countries.data.length -1 + 1)})
+    this.setState({ randNum: this.state.randNum = Math.floor(Math.random() * Countries.data.length) +1})
     console.log('game starting');
     cityDisplay.innerHTML = Countries.data[this.state.randNum].City;
   }
 
   updateRemainingPlaces() {
     const placesRemaining = document.getElementById('placesRemaining');
-    placesRemaining.innerHTML = Countries.data.length -1;
+    placesRemaining.innerHTML = Countries.data.length;
   }
 
   updateScore() {
@@ -55,19 +55,23 @@ constructor(props) {
       countryInput.value = '';
     }
     console.log(Countries.data[this.state.randNum].Country);
+    console.log(Countries.data.length);
+    console.log(this.state.randNum);
     this.updateRemainingPlaces();
   }
 
   skip() {
     const cityDisplay = document.getElementById('country');
     const displaySkipped = document.getElementById('skipInfo');
-    this.setState({ randNum: this.state.randNum = Math.floor(Math.random() * Countries.data.length -1 + 1)})
+    displaySkipped.innerHTML = `${Countries.data[this.state.randNum].City} is the capital city of ${Countries.data[this.state.randNum].Country}.`;
+    this.setState({ randNum: this.state.randNum = Math.floor(Math.random() * (Countries.data.length)+1)})
     console.log('skipping...');
     Countries.data.splice(this.state.randNum,1);
-    cityDisplay.innerHTML = Countries.data[this.state.randNum].City;
-    displaySkipped.innerHTML = Countries.data[this.state.randNum -1].Country;
+    cityDisplay.innerHTML = Countries.data[this.state.randNum -1].City;
     this.updateRemainingPlaces();
     this.progressBar();
+    console.log(Countries.data.length);
+    console.log(this.state.randNum);
   }
 
   reset() {

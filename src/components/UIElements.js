@@ -7,7 +7,7 @@ class UIElements extends React.Component {
             <h2 id="mainTitle">Geo Quiz.</h2>
             <div id="largeBlockRight">
             <h1 id="bgTitle">GEO<br></br>QUIZ</h1>
-            <div class="circle small">
+            <div className="circle small">
             </div>  
             <div id="smallLeftBlock">
                 <p id="smallLeftBlockText"></p>
