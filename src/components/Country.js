@@ -11,7 +11,7 @@ class Country extends React.Component {
       gameStarted: false,
       countries: [],
       currentIdx: 0,
-      // score: 0,
+      score: 0,
       // progress: 0,
     };
   }
@@ -53,6 +53,11 @@ addGuessedFieldToCountryData = (dataArray) => {
     const country = this.state.countries[this.state.currentIdx].country.toLowerCase();
     if (input === country) {
       event.target.value = '';
+      this.setState({
+        currentIdx: this.state.currentIdx + 1,
+        score: this.state.score + 1,
+      })
+      
     }
   }
 
@@ -81,6 +86,7 @@ addGuessedFieldToCountryData = (dataArray) => {
               type="text"
               placeholder="City..."
             />
+            <p id="score">{this.state.score}</p>
 
             <button onClick={this.skip} id="skipBtn" className="btn">
               Skip
