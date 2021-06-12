@@ -27,7 +27,7 @@ constructor(props) {
 
   newCity() {
     const cityDisplay = document.getElementById('country');
-    this.setState({ randNum: this.state.randNum = Math.floor(Math.random() * Countries.data.length) +1})
+    this.setState({ randNum: this.state.randNum = Math.floor(Math.random() * Countries.data.length) +})
     console.log('game starting');
     cityDisplay.innerHTML = Countries.data[this.state.randNum].City;
   }
