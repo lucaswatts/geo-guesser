@@ -16,10 +16,22 @@ class Country extends React.Component {
     };
   }
 
+addGuessedFieldToCountryData = (dataArray) => {
+  return dataArray.map((arrayItems) => {
+    return {
+      city: arrayItems.city,
+      country: arrayItems.country,
+      guessed: false,
+    }
+  });
+}
+
   startGame = () => {
     const shuffledCountries = shuffle(countries);
+    const gameReadyCountries = this.addGuessedFieldToCountryData(shuffledCountries);
+
     this.setState({
-      countries: shuffledCountries,
+      countries: gameReadyCountries,
       gameStarted: true,
     });
   };
@@ -30,7 +42,19 @@ class Country extends React.Component {
 
   updateScore() {}
 
-  check() {}
+  //we need to clear the input box
+  //increment the array position
+  //we need to generate a new country
+  //we want to increment the users score if correct
+  //store whether or not the answer was correct 
+  check = (event) => {
+    console.log(this.state.countries[this.state.currentIdx].country);
+    const input = event.target.value.toLowerCase();
+    const country = this.state.countries[this.state.currentIdx].country.toLowerCase();
+    if (input === country) {
+      event.target.value = '';
+    }
+  }
 
   skip = () => {
     this.setState({
@@ -43,13 +67,20 @@ class Country extends React.Component {
   progressBar() {}
 
   render() {
-    const currentCity = this.state.countries[this.state.currentIdx].city;
+
 
     return (
       <div id="content">
         {this.state.gameStarted ? (
           <div id="game-page">
-            <p id="country">{currentCity}</p>
+            <p id="country">{this.state.countries[this.state.currentIdx].city}</p>
+            <input
+              className="game-input"
+              onKeyUp={this.check}
+              id="name"
+              type="text"
+              placeholder="City..."
+            />
 
             <button onClick={this.skip} id="skipBtn" className="btn">
               Skip
