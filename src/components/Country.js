@@ -11,7 +11,8 @@ class Country extends React.Component {
       gameStarted: false,
       countries: [],
       currentIdx: 0,
-      score: 0,
+      correctGuesses: [],
+      gameOver: false,
       // progress: 0,
     };
   }
@@ -52,12 +53,19 @@ addGuessedFieldToCountryData = (dataArray) => {
     const input = event.target.value.toLowerCase();
     const country = this.state.countries[this.state.currentIdx].country.toLowerCase();
     if (input === country) {
-      event.target.value = '';
+      const correctGuessesCopy = [...this.state.correctGuesses];
+      correctGuessesCopy.push(this.state.currentIdx);
       this.setState({
         currentIdx: this.state.currentIdx + 1,
         score: this.state.score + 1,
+        correctGuesses: correctGuessesCopy,
       })
-      
+      event.target.value = '';
+      if (this.state.currentIdx === correctGuessesCopy.length) {
+        this.setState({
+          gameOver: true,
+        })
+      }
     }
   }
 
@@ -72,10 +80,15 @@ addGuessedFieldToCountryData = (dataArray) => {
   progressBar() {}
 
   render() {
-
+    const gameStatus = this.state.gameOver;
+    let text;
+    if (gameStatus === true) {
+      text = <p>GAme is OvEr</p>;
+    }
 
     return (
       <div id="content">
+        {text}
         {this.state.gameStarted ? (
           <div id="game-page">
             <p id="country">{this.state.countries[this.state.currentIdx].city}</p>
@@ -86,7 +99,7 @@ addGuessedFieldToCountryData = (dataArray) => {
               type="text"
               placeholder="City..."
             />
-            <p id="score">{this.state.score}</p>
+            <p id="score">{this.state.correctGuesses.length}</p>
 
             <button onClick={this.skip} id="skipBtn" className="btn">
               Skip
