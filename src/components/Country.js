@@ -37,7 +37,6 @@ addGuessedFieldToCountryData = (dataArray) => {
     });
   };
 
-  newCity() {}
 
   updateRemainingPlaces() {}
 
@@ -61,7 +60,7 @@ addGuessedFieldToCountryData = (dataArray) => {
         correctGuesses: correctGuessesCopy,
       })
       event.target.value = '';
-      if (this.state.currentIdx === correctGuessesCopy.length) {
+      if (this.state.currentIdx === countries.length -1) {
         this.setState({
           gameOver: true,
         })
@@ -78,7 +77,7 @@ addGuessedFieldToCountryData = (dataArray) => {
   reset() {}
 
   progressBar() {}
-
+//add if index is at the end, display the game over page
   render() {
     const gameStatus = this.state.gameOver;
     let text;
