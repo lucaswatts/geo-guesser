@@ -9,10 +9,10 @@ class Country extends React.Component {
     super(props);
     this.state = {
       gameStarted: false,
+      gameOver: false,
       countries: [],
       currentIdx: 0,
       correctGuesses: [],
-      gameOver: false,
       // progress: 0,
     };
   }
@@ -37,6 +37,18 @@ addGuessedFieldToCountryData = (dataArray) => {
     });
   };
 
+  checkGameStatus() {
+    if (this.state.currentIdx === countries.length -1) {
+      this.endGame();
+    }
+  }
+
+  endGame = () => {
+    this.setState({
+      gameStarted: this.state.gameStarted = false,
+      gameOver: this.state.gameOver = true,
+    });
+  }
 
   updateRemainingPlaces() {}
 
@@ -58,12 +70,10 @@ addGuessedFieldToCountryData = (dataArray) => {
         currentIdx: this.state.currentIdx + 1,
         score: this.state.score + 1,
         correctGuesses: correctGuessesCopy,
-      })
+      }) 
       event.target.value = '';
       if (this.state.currentIdx === countries.length -1) {
-        this.setState({
-          gameOver: true,
-        })
+        this.checkGameStatus();
       }
     }
   }
@@ -74,22 +84,49 @@ addGuessedFieldToCountryData = (dataArray) => {
     });
   };
 
-  reset() {}
+  seeResults = () => {
+    console.log(countries)
+  }
+  resetGame = () => {
+    this.setState({
+      gameOver: false,
+      gameStarted: false,
+    })
+  }
+
 
   progressBar() {}
 //add if index is at the end, display the game over page
   render() {
-    const gameStatus = this.state.gameOver;
-    let text;
-    if (gameStatus === true) {
-      text = <p>GAme is OvEr</p>;
+
+  //if game is over, show game over page
+  //if game is not over and the game has started, show the game content 
+  //if the game has not started and the game is not over, show the pre game content
+    const gameOver = this.state.gameOver;
+    const gameStarted = this.state.gameStarted;
+    let page;
+    if (gameOver && !gameStarted) {
+      page = (
+        <div id="gameOverPage">
+          <p id="gameOverMsg">Game Over.</p>
+          <button id="seeResults" onClick={this.seeResults} className="btn">
+            See my Results
+          </button>
+          <button
+              id="startBtn"
+              className={`btn ${this.state.gameStarted ? "hidden" : ""}`}
+              onClick={this.resetGame}
+              type="button"
+            >
+              Start
+            </button>
+        </div>
+      )
     }
 
-    return (
-      <div id="content">
-        {text}
-        {this.state.gameStarted ? (
-          <div id="game-page">
+    else if (!gameOver && gameStarted) {
+      page = (
+        <div id="game-page">
             <p id="country">{this.state.countries[this.state.currentIdx].city}</p>
             <input
               className="game-input"
@@ -103,44 +140,18 @@ addGuessedFieldToCountryData = (dataArray) => {
             <button onClick={this.skip} id="skipBtn" className="btn">
               Skip
             </button>
-            {/* <input
-              className="game-input"
-              onKeyUp={() => this.check()}
-              id="name"
-              type="text"
-              placeholder="City..."
-            />
-            <p id="skipInfo">-</p>
-            <button
-              onClick={() => this.check()}
-              id="checkAnswer"
-              className="btn"
-            >
-              Check Answer
-            </button>
-            <button onClick={() => this.skip()} id="skipBtn" className="btn">
-              Skip
-            </button>
 
-            <div id="scoreElements">
-              <h2 id="scoreCount">0</h2>
-              <button
-                id="resetBtn"
-                className="btn"
-                onClick={() => this.reset()}
-              >
-                Reset Game
-              </button>
-            </div>
-            <br></br>
-            <p className="bottomLeftText" id="placesRemaining">
-              197
-            </p>
-            <p className="bottomLeftTextTwo">Countries remaining.</p>
-            <div id="progressBar"></div> */}
+            <button onClick={this.endGame} id="endGameBtn" className="btn">
+              End Game
+            </button>
+            
           </div>
-        ) : (
-          <div id="menu-page">
+      )
+    } 
+
+    else if (!gameOver && !gameStarted) {
+      page = (
+        <div id="menu-page">
             <p id="country">Press start to begin</p>
 
             <button
@@ -152,7 +163,12 @@ addGuessedFieldToCountryData = (dataArray) => {
               Start
             </button>
           </div>
-        )}
+      )
+    }
+
+    return (
+      <div id="content">
+        {page}
 
         {/* <button
           id="startBtn"
