@@ -8,16 +8,16 @@ body {
   background-color: #202429;
 }
 
-.inactive.btn {
+/* .inactive.btn {
   visibility: hidden;
-}
+} */
 
-#parentContainer {
+/* #parentContainer {
   height: 100%;
   width: 100%;
-}
+} */
 
-#button1 {
+/* #button1 {
   width: 100px;
   height: 50px;
   background-color: #093426;
@@ -30,12 +30,12 @@ body {
   text-transform: uppercase;
   display: block;
   margin-bottom: 20px;
-}
+} */
 
-#button1:hover {
+/* #button1:hover {
   background-color: #23483c;
   color: #e7f3ef;
-}
+} */
 
 #infoHolder {
   display: none;
@@ -50,35 +50,36 @@ body {
   text-transform: uppercase;
   display: block;
   z-index: 300;
+  text-align: center;
 }
 
 p {
   font-family: "Roboto", sans-serif;
-  color: #c0ab9a;
+  color: #f5f7f8;
 }
 
-#largeBlockRight {
+/* #largeBlockRight {
   margin-left: 50%;
   height: 100%;
   background-color: #293237;
   color: #293237;
   width: 50%;
   position: absolute;
-}
+} */
 
 #content {
-  border: 1px solid red;
   background-color: #11111100;
   position: absolute;
-  bottom: 400px;
+  bottom: 150px;
   width: 100%;
+  margin: auto;
   display: flex;
-  justify-content: center;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 }
 
-#bgTitle {
+/* #bgTitle {
   display: block;
   font-size: 200px;
   color: #252d3499;
@@ -88,7 +89,7 @@ p {
   font-family: "Oswald", sans-serif;
   font-weight: 700;
   line-height: 1;
-}
+} */
 
 #mainTitle {
   display: block;
@@ -96,10 +97,11 @@ p {
   top: 0px;
   left: 10px;
   font-family: "Oswald", sans-serif;
-  font-weight: 600;
-  font-size: 55px;
-  color: #c0ab9a;
+  font-weight: 200;
+  font-size: 35px;
+  color: #56bd7366;
   background-color: #11111100;
+  font-style: italic;
 }
 
 .circle.small {
@@ -123,19 +125,19 @@ p {
   margin: auto;
 }
 
-#scoreCounter {
-  color: #c0ab9a;
-  display: inline;
+#score {
+  color: #f5f7f8;
   background-color: #11111100;
   font-family: "Quattrocento", serif;
   font-size: 22px;
   position: relative;
   margin-bottom: 10px;
   margin-top: 10px;
+  text-align: center;
 }
 
 #scoreCount {
-  color: #c0ab9a;
+  color: #f5f7f8;
   display: inline;
   background-color: #11111100;
   font-family: "Quattrocento", serif;
@@ -159,40 +161,60 @@ p {
   margin-top: 50px;
 }
 
+#skipBtn {
+  margin: auto;
+}
+
+#endGameBtn {
+  margin: auto;
+  margin-top: 25px;
+}
+
+#seeResults {
+  margin: auto;
+  margin-top: 25px;
+}
+
+#startBtn {
+  margin: auto;
+  margin-top: 25px;
+}
+
 .btn {
-  background-color: #202429;
-  display: inline-block;
+  background-color: #0f131a;
   padding: 0.5em 3em;
-  border: 0.16em solid #ff613233;
+  border: 0.16em solid #4f996033;
   margin: 0 0.3em 0.3em 0;
   box-sizing: border-box;
   text-decoration: none;
   text-transform: uppercase;
   font-family: "Oswald", sans-serif;
-  font-weight: 200;
-  color: #c0ab9a;
+  font-weight: 400;
+  color: #4f9960;
   text-align: center;
   transition: all 0.25s;
   z-index: 50;
+  display: block;
 }
 
 .btn:hover {
-  color: #ff6132;
-  border-color: #ff6132dd;
+  background-color: #4f9960;
+  color: #010100;
+  border-color: #6bec9000;
 }
 
 .game-input {
   display: block;
   width: 215px;
   padding: 10px 0 10px 15px;
-  color: #c0ab9a;
-  background: #202429;
+  color: #f5f7f8;
+  background: #0f131a;
   border: 0;
   border-radius: 3px;
   outline: 0;
   text-indent: 5px;
   transition: all 0.3s ease-in-out;
-  border: 1px solid #ff613233;
+  border: 1px solid #56bd7333;
   font-family: "Oswald", sans-serif;
   font-size: 12pt;
   font-weight: 400;
@@ -200,7 +222,7 @@ p {
 }
 
 .game-input:focus {
-  border: 1px solid #ff6132;
+  border: 1px solid #6bec90;
 }
 
 .bottomLeftText {
@@ -237,4 +259,178 @@ p {
   font-weight: 200;
   background-color: #11111100;
   font-style: bold;
+}
+
+#gameOverMsg {
+  text-align: center;
+  font-family: "Oswald", sans-serif;
+  font-weight: 200;
+  background-color: #11111100;
+  font-style: bold;
+  margin-top: 25px;
+  font-style: italic;
+}
+
+#startMsg {
+  font-family: "Oswald", sans-serif;
+  font-weight: 200;
+  background-color: #11111100;
+  font-style: bold;
+  margin-top: 25px;
+  font-style: italic;
+  text-align: center;
+}
+
+
+
+
+
+
+
+
+/* Animation CSS for BG */
+
+.home-section {
+        height: 100%;
+        width: 100%;
+        display: block;
+        overflow: hidden;
+        align-items: center;
+        justify-content: center;
+        background-color: #010100;
+}
+
+.home-section .home-content {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.home-section .circles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+    dl, ol, ul {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    }
+
+    .home-section .circles li:nth-child(1) {
+    left: 25%;
+    width: 80px;
+    height: 80px;
+    animation-delay: 0s;
+    }
+
+    .home-section .circles li {
+    background-color: #1b3923aa;
+}
+
+.home-section .circles li {
+    position: absolute;
+    display: block;
+    list-style: none;
+    width: 20px;
+    height: 20px;
+    animation: animate 25s linear infinite;
+    bottom: -150px;
+}
+
+.home-section .circles li:nth-child(1) {
+    left: 25%;
+    width: 80px;
+    height: 80px;
+    animation-delay: 0s;
+}
+
+.home-section .circles li:nth-child(2) {
+    left: 10%;
+    width: 20px;
+    height: 20px;
+    animation-delay: 2s;
+    animation-duration: 12s;
+}
+
+.home-section .circles li:nth-child(3) {
+    left: 70%;
+    width: 20px;
+    height: 20px;
+    animation-delay: 4s;
+}
+
+.home-section .circles li:nth-child(4) {
+    left: 40%;
+    width: 60px;
+    height: 60px;
+    animation-delay: 0s;
+    animation-duration: 18s;
+}
+
+.home-section .circles li:nth-child(5) {
+    left: 65%;
+    width: 20px;
+    height: 20px;
+    animation-delay: 0s;
+}
+
+.home-section .circles li:nth-child(6) {
+    left: 75%;
+    width: 110px;
+    height: 110px;
+    animation-delay: 3s;
+}
+
+.home-section .circles li:nth-child(7) {
+    left: 35%;
+    width: 150px;
+    height: 150px;
+    animation-delay: 7s;
+}
+
+.home-section .circles li:nth-child(8) {
+    left: 50%;
+    width: 25px;
+    height: 25px;
+    animation-delay: 15s;
+    animation-duration: 45s;
+}
+
+.home-section .circles li:nth-child(9) {
+    left: 20%;
+    width: 15px;
+    height: 15px;
+    animation-delay: 2s;
+    animation-duration: 35s;
+}
+
+.home-section .circles li:nth-child(10) {
+    left: 85%;
+    width: 150px;
+    height: 150px;
+    animation-delay: 0s;
+    animation-duration: 11s;
+}
+
+@keyframes animate{
+    0% {
+    transform: translateY(0) rotate(
+0deg
+);
+    opacity: 1;
+    border-radius: 0;
+}
+100% {
+    transform: translateY(-1000px) rotate(
+720deg
+);
+    opacity: 0;
+    border-radius: 100%;
+}
 }
