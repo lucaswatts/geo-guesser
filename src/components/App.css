@@ -99,7 +99,7 @@ p {
   font-family: "Oswald", sans-serif;
   font-weight: 200;
   font-size: 35px;
-  color: #56bd7366;
+  color: #f2f2f255;
   background-color: #11111100;
   font-style: italic;
 }
@@ -281,8 +281,19 @@ p {
   text-align: center;
 }
 
+#countryTracker {
+  margin-top: 25px;
+  font-style: italic;
+  font-size: 12px;
+  text-align: center;
+}
 
-
+#gameResults {
+  color: white;
+  border: 3px solid purple;
+  width: 100%;
+  height: 500px;
+}
 
 
 

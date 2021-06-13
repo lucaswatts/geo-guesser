@@ -7,7 +7,7 @@ function App() {
   return (
     <div id="parentContainer">
     <UIElements />
-      <Country />
+    <Country />
     </div>
   );
 }

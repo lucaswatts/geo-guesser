@@ -13,6 +13,7 @@ class Country extends React.Component {
       countries: [],
       currentIdx: 0,
       correctGuesses: [],
+
     };
   }
 
@@ -75,14 +76,29 @@ class Country extends React.Component {
   };
 
   seeResults = () => {
-    console.log(countries)
+    
   }
+
+
   resetGame = () => {
     this.setState({
       gameOver: false,
       gameStarted: false,
     })
   }
+
+  // renderCountryData = () => {
+  //   return this.state.countries.map((place) => {
+  //     const { country, city } = place;
+  //     return (
+  //       <tr key={country}>
+  //         <td>{city}</td>
+  //         </tr>
+
+  //     )
+  //   })
+  // }
+
 
   render() {
 
@@ -93,16 +109,19 @@ class Country extends React.Component {
       page = (
         <div id="gameOverPage">
           <p id="gameOverMsg">Game Over.</p>
-          <button id="seeResults" onClick={this.seeResults} className="btn">
+          {/* <button id="seeResults" onClick={this.seeResults} className="btn">
             See my Results
-          </button>
+          </button> */}
+          {/* <tbody className="inactive" id="gameResults">
+            {this.renderCountryData()}
+          </tbody> */}
           <button
               id="startBtn"
               className={`btn ${this.state.gameStarted ? "hidden" : ""}`}
               onClick={this.resetGame}
               type="button"
             >
-              Start
+              Return to Main Menu
             </button>
         </div>
       )
@@ -128,6 +147,8 @@ class Country extends React.Component {
             <button onClick={this.endGame} id="endGameBtn" className="btn">
               End Game
             </button>
+            <p id="countryTracker">You are on Country {this.state.currentIdx} out of 197.</p>
+            <div id="progressBar"></div>
       
           </div>
       )
