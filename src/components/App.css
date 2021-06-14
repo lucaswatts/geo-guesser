@@ -308,7 +308,9 @@ p {
         overflow: hidden;
         align-items: center;
         justify-content: center;
-        background-color: #010100;
+        background: 
+        linear-gradient(
+          #4f9960, #010100 75%);
 }
 
 .home-section .home-content {
@@ -341,7 +343,7 @@ p {
     }
 
     .home-section .circles li {
-    background-color: #1b3923aa;
+    background-color: #01010033;
 }
 
 .home-section .circles li {
