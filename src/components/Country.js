@@ -46,8 +46,8 @@ class Country extends React.Component {
 
   endGame = () => {
     this.setState({
-      gameStarted: this.state.gameStarted = false,
-      gameOver: this.state.gameOver = true,
+      gameStarted: false,
+      gameOver: true,
     });
   }
 
