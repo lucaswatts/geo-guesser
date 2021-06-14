@@ -34,6 +34,7 @@ class Country extends React.Component {
     this.setState({
       countries: shuffledCountries,
       gameStarted: true,
+      currentIdx: 0,
     });
   };
 
@@ -109,6 +110,7 @@ class Country extends React.Component {
       page = (
         <div id="gameOverPage">
           <p id="gameOverMsg">Game Over.</p>
+          <p id="scoreMsg">Your score is {this.state.correctGuesses.length}.</p>
           {/* <button id="seeResults" onClick={this.seeResults} className="btn">
             See my Results
           </button> */}
@@ -125,6 +127,7 @@ class Country extends React.Component {
             </button>
         </div>
       )
+      
     }
 
     else if (!gameOver && gameStarted) {
@@ -136,7 +139,7 @@ class Country extends React.Component {
               onKeyUp={this.check}
               id="name"
               type="text"
-              placeholder="City..."
+              placeholder="Guess the country..."
             />
             <p id="score">{this.state.correctGuesses.length}</p>
 
@@ -170,6 +173,7 @@ class Country extends React.Component {
             <p id="startMsg">Geo quiz will show you a random City from one of the world's Countries. Try and guess which Country the City belongs to. Good luck!</p>
           </div>
       )
+
     }
 
     return (
