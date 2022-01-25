@@ -1,4 +1,4 @@
-link to live project: https://friendly-jackson-382a0b.netlify.app/
+# link to live project: https://friendly-jackson-382a0b.netlify.app/
 
 # Getting Started with Create React App
 
